@@ -27,16 +27,17 @@ import java.util.*;
 class Solution {
     // Function to find maximum product subarray
     long maxProduct(int[] arr, int n) {
-        long result = Integer.MIN_VALUE;
-        for(int i=0;i<n;i++)
-        {
-            long mul=arr[i];
-            for(int j=i+1;j<n;j++){
-                result = Math.max(result,mul);
-                mul*= arr[j];
-            }
-            result=Math.max(result,mul);
-        }
-        return result;
+       long result = Integer.MIN_VALUE;
+       for(int i=0;i<n;i++)
+       {
+           long mul= arr[i];
+           for(int j=i+1;j<n;j++)
+           {
+               result = Math.max(result,mul);
+               mul*=arr[j];
+           }
+           result = Math.max(result,mul);
+       }
+       return result;
     }
 }

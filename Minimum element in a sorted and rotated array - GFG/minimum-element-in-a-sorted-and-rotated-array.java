@@ -35,11 +35,14 @@ class Solution
 {
     int findMin(int arr[], int n)
     {
-       int min=Integer.MAX_VALUE;
-       for(int i=0;i<n;i++)
-       {
-           if(min>arr[i]) min=arr[i];
-       }
-       return min;
+        int left=0,right=arr.length-1;
+        
+        while(left<right)
+        {
+            int mid = (left+right)/2;
+            if(arr[mid]<arr[right]) right=mid;
+            else left=mid+1;
+        }
+        return arr[right];
     }
 }

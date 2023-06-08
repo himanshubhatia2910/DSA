@@ -1,17 +1,25 @@
+
 class Solution {
+    static int NO_OF_CHARS=256;
     public boolean isAnagram(String s, String t) {
-            if(s.length()!=t.length()) return false;
+        int[] count = new int[NO_OF_CHARS];
         
-            char arr1[]= s.toCharArray();
-            char arr2[]=t.toCharArray();
+        if(s.length()!=t.length())
+        {
+            return false;
+        }
+        char[] str = s.toCharArray();
+        char[] str1 = t.toCharArray();
+        for(int i=0;i<s.length();i++)
+        {
+            count[str[i]]++;
+            count[str1[i]]--;
+        }
         
-            Arrays.sort(arr1);
-            Arrays.sort(arr2);
-        
-            for(int i=0;i<s.length();i++)
-            {
-                if(arr1[i]!=arr2[i]) return false;
-            }
+        for(int j=0;j<NO_OF_CHARS;j++)
+        {
+            if(count[j]!=0) return false;
+        }
         return true;
     }
 }

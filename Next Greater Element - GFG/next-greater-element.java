@@ -34,35 +34,20 @@ class Solution
     //Function to find the next greater element for each element of the array.
     public static long[] nextLargerElement(long[] arr, int n)
     { 
-        Stack<Long> stack = new Stack<>();
-        long[] ans = new long[arr.length];
-        for(int i=arr.length-1;i>=0;i--)
-        {
-            while(stack.size()>0 && stack.peek() <= arr[i])
-            {
-                stack.pop();
-            }
-            if(stack.size()==0) ans[i]=-1;
-            else ans[i]=stack.peek();
-            
-            stack.push(arr[i]);
-        }
-        return ans;
-        // Stack<Long> stack = new Stack<>();
-        // long[] and = new long[arr.length];
-        // stack.push(0);
-        // for(int i=1;i<arr.length;i++){
-        //     while(stack.size()>0 && arr[stack.peek()]<arr[i])
-        //     {
-        //         ans[stack.peek()]=arr[i];
-        //         stack.pop();
-        //     }
-        //     stack.push(i);
-        // }
-        // while(stack.size()>0)
-        // {
-        //     ans[stack.pop]=-1;
-        // }
-        // return ans;
+       Stack<Long> stack = new Stack<>();
+       long[] ans = new long[arr.length];
+       
+       for(int i= arr.length-1;i>=0;i--){
+           while(stack.size()>0 && stack.peek()<= arr[i]){stack.pop();}
+           if(stack.size()==0)
+           {
+               ans[i]=-1;
+           }
+           else{
+               ans[i]=stack.peek();
+           }
+           stack.push(arr[i]);
+       }
+       return ans;
     } 
 }

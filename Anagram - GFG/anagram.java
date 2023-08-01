@@ -41,22 +41,39 @@ class Solution
     public static boolean isAnagram(String a,String b)
     {
         /* Using Count Array */
+        // if(a.length()!=b.length())
+        // {
+        //     return false;
+        // }
+        // int count[] = new int[NO_OF_CHARS];
+        
+        // char str[] = a.toCharArray();
+        // char str1[] = b.toCharArray();
+        // for(int i=0;i<a.length();i++)
+        // {
+        //     count[str[i]]++;
+        //     count[str1[i]]--;
+        // }
+        // for(int i=0;i<NO_OF_CHARS;i++)
+        // {
+        //     if(count[i]!=0) return false;
+        // }
+        // return true;
+        
+        /*Using Sorting*/
         if(a.length()!=b.length())
         {
             return false;
         }
-        int count[] = new int[NO_OF_CHARS];
-        
         char str[] = a.toCharArray();
         char str1[] = b.toCharArray();
+        
+        Arrays.sort(str);
+        Arrays.sort(str1);
+    
         for(int i=0;i<a.length();i++)
         {
-            count[str[i]]++;
-            count[str1[i]]--;
-        }
-        for(int i=0;i<NO_OF_CHARS;i++)
-        {
-            if(count[i]!=0) return false;
+            if(str[i]!=str1[i]) return false;
         }
         return true;
     }

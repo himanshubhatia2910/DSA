@@ -1,6 +1,8 @@
 //{ Driver Code Starts
 import java.io.*;
 
+import java.util.*;
+
 class Main {
     
 	public static void main (String[] args) throws IOException {
@@ -35,20 +37,48 @@ class Solution{
     // n: size of array
     //Function to find the sum of contiguous subarray with maximum sum.
     long maxSubarraySum(int arr[], int n){
-        long result=Integer.MIN_VALUE;
+        
+        /* Only for Positive Values*/ 
+        // long currentSum=0;
+        // long maxSum= Integer.MIN_VALUE;
+        
+        // for(int i=0;i<n;i++)
+        // {
+        //     currentSum+=arr[i];
+        //     maxSum = Math.max(currentSum,maxSum);
+        //     if(currentSum<0) currentSum=0;
+        // }
+        // return maxSum;
+        
+        /*For Both Positive and Negative Values*/
+        // long currentSum=0;
+        // long maxSum= Integer.MIN_VALUE;
+        
+        // for(int i=0;i<n;i++)
+        // {
+        //     currentSum=arr[i];
+            
+        //     for(int j=i+1;j<n;j++)
+        //     {
+        //         maxSum=Math.max(currentSum,maxSum);
+        //         currentSum+=arr[j];
+        //     }
+        //     maxSum= Math.max(currentSum,maxSum);
+        // }
+        // return maxSum;
+        
+        //Optimised Approach:
+        
+        long currentSum=0;
+        long maxSum=Integer.MIN_VALUE;
+        
         for(int i=0;i<n;i++)
         {
-            long sum=arr[i];
-            for(int j=i+1;j<n;j++)
-            {
-                result=Math.max(result,sum);
-                sum+=arr[j];
-            }
-            result=Math.max(result,sum);
+            currentSum = Math.max(arr[i],currentSum+arr[i]);
+            
+            maxSum= Math.max(currentSum,maxSum);
         }
-        return result;
-        
+        return maxSum;
     }
-    
 }
 

@@ -125,9 +125,9 @@ class Solution {
     {
         if(node==null) return 0;
         
-        int LeftHeight = height(node.left);
-        int RightHeight = height(node.right);
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
         
-        return Math.max(LeftHeight,RightHeight)+1;
+        return Math.max(leftHeight,rightHeight)+1;
     }
 }

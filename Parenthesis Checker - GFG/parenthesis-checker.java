@@ -37,20 +37,20 @@ class Solution
     //Function to check if brackets are balanced or not.
     static boolean ispar(String x)
     {
-        Stack<Character> s = new Stack<>();
+        Stack<Character> stack = new Stack<>();
         
-        for( char c: x.toCharArray())
+        for(int i=0;i<x.length();i++)
         {
-            if(c=='(' || c=='{' || c=='[') s.push(c);
+            if(x.charAt(i)=='[' || x.charAt(i)=='(' || x.charAt(i)=='{') stack.push(x.charAt(i));
             else
             {
-                if(s.empty()) return false;
-                if(c==')' && s.peek()=='(') s.pop();
-                else if(c=='}' && s.peek()=='{') s.pop();
-                else if(c==']'&& s.peek()=='[') s.pop();
+                if(stack.isEmpty()) return false;
+                if(x.charAt(i)==']' && stack.peek()=='[') stack.pop();
+                else if(x.charAt(i)==')' && stack.peek()=='(') stack.pop();
+                else if(x.charAt(i)=='}' && stack.peek()=='{') stack.pop();
                 else return false;
             }
         }
-        return s.empty();
+        return stack.isEmpty();
     }
 }

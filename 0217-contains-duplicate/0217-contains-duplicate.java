@@ -6,13 +6,15 @@ class Solution {
        //     if(nums[i]==nums[i+1]) return true;
        // }
        //  return false;
+        
         HashSet<Integer> set = new HashSet<>();
         
-        for( int num: nums)
+        for(int num: nums)
         {
             if(set.contains(num)) return true;
             else set.add(num);
         }
+        
         return false;
     }
 }

@@ -12,34 +12,29 @@ class Solution
 {
     public static void sort012(int a[], int n)
     {
-        int count0=0,count1=0,count2=0;
-        for(int i=0;i<n;i++)
+        int low=0,mid=0,high=n-1;
+        
+        while(mid<=high)
         {
-            switch(a[i])
+            if(a[mid]==0)
             {
-                case 0: count0++;
-                        break;
-                case 1: count1++;
-                        break;
-                case 2: count2++;
-                        break;
+                int temp=a[low];
+                a[low]=a[mid];
+                a[mid]=temp;
+                low+=1;
+                mid+=1;
             }
-        }
-        int i=0;
-        while(count0>0)
-        {
-            a[i++]=0;
-            count0--;
-        }
-        while(count1>0)
-        {
-            a[i++]=1;
-            count1--;
-        }
-        while(count2>0)
-        {
-            a[i++]=2;
-            count2--;
+            else if(a[mid]==1)
+            {
+                mid+=1;
+            }
+            else if(a[mid]==2)
+            {
+                int temp = a[high];
+                a[high]= a[mid];
+                a[mid] = temp;
+                high-=1;
+            }
         }
     }
 }

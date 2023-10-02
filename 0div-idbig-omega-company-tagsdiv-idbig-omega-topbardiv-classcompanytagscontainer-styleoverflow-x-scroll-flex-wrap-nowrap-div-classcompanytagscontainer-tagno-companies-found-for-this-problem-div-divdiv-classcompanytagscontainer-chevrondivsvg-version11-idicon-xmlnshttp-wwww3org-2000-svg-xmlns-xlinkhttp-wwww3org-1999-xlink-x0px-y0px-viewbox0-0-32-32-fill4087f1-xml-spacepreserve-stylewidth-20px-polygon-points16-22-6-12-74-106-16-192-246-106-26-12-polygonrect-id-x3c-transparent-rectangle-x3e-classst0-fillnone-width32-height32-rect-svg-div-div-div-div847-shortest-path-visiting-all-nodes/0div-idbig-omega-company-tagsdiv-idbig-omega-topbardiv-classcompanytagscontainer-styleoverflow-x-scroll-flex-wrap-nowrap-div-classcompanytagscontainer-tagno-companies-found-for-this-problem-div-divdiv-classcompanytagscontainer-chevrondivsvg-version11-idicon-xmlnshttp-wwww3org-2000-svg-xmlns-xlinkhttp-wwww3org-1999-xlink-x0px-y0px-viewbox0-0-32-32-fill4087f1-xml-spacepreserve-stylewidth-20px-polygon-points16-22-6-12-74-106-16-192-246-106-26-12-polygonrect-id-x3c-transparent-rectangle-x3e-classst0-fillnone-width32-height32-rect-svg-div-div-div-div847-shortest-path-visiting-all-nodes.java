@@ -5,7 +5,7 @@ class Solution {
 
         int N = graph.length;    
 
-        List<Integer> sources = getNodesWithLeastDegree(graph); //we need to start BFS from nodes which has less degree, because shorted path never starts from the node which has more degree.
+        List<Integer> sources = getNodesWithLeastDegree(graph); 
 
         Queue<PathNode> queue = new LinkedList<>();
 
